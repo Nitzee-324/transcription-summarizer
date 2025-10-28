@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview Bot</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mock Interview</h1>
+           
+        </div>
+
+        <div class="content">
+            <!-- Status and progress section -->
+            <div class="status-bar">
+                <div class="status-indicator">
+                    <div class="status-dot" id="statusDot"></div>
+                    <span id="statusText">Ready</span>
+                </div>
+                <div class="health-indicator">
+                    <span>Connection:</span>
+                    <div class="health-bar">
+                        <div class="health-fill" id="healthFill" style="width: 100%"></div>
+                    </div>
+                    <span id="healthText">100%</span>
+                </div>
+                <div>
+                    <span id="progressText">Question 0 / 0</span>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+
+            <!-- Connection status display -->
+            <div class="connection-status" id="connectionStatus">
+                <strong>Ready:</strong> Click "Start Interview" to begin the mock interview
+            </div>
+
+            <!-- Start section - initial screen -->
+            <div id="startSection" class="active">
+                <!-- <div class="welcome-message">
+                    <h2>Welcome to Your Mock Interview</h2>
+                    <p>This interview will test your Python knowledge through a series of technical questions.</p>
+                    <ul class="feature-list">
+                        <li> Automatic speech recognition</li>
+                        <li> Text-to-speech for questions</li>
+                        <li> AI-powered answer analysis</li>
+                        <li> Automatic transcript saving</li>
+                    </ul>
+                </div> -->
+                <div class="controls">
+                    <button id="startBtn" class="primary-btn">Start Interview</button>
+                </div>
+            </div>
+
+            <!-- Question section - active during interview -->
+            <div id="questionSection">
+                <div class="question-box">
+                    <div class="question-label">Current Question</div>
+                    <div class="question-text" id="questionText">Loading question...</div>
+                </div>
+
+                <!-- TTS status indicator -->
+                <div class="tts-status" id="ttsStatus">
+                    Playing question audio...
+                </div>
+
+                <!-- Recording status indicator -->
+                <div class="recording-status" id="recordingStatus">
+                     Recording started - Please speak your answer now
+                </div>
+
+                <!-- TTS error fallback -->
+                <div class="tts-error" id="ttsError">
+                    ❌ Could not play question audio. Please read the question above and start speaking.
+                </div>
+
+                <!-- AI analysis status -->
+                <div class="ai-status" id="aiStatus">
+                     AI is analyzing your answer...
+                </div>
+
+                <!-- Transcript display area -->
+                <div class="transcript-box">
+                    <div class="transcript-label">Your Answer</div>
+                    <div class="live-transcript" id="liveTranscript">
+                        Waiting for question audio to finish...
+                    </div>
+                    <div class="full-transcript" id="fullTranscript">
+                        Speak clearly to answer the question. Your response will appear here.
+                    </div>
+                    <div class="info-bar">
+                        <span id="wordCount">Words: 0</span>
+                        <span id="statusMessage"></span>
+                        <span class="latency-info" id="latencyInfo">Latency: 0ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completion section - shown when interview ends -->
+            <div id="completionSection">
+                <div class="completion-message">
+                    <h2> Interview Completed!</h2>
+                    <p>Thank you for participating in the mock interview.</p>
+                    <p>Your responses have been saved and can be reviewed later.</p>
+                    <div class="completion-details">
+                        <p id="transcriptFile" class="file-path"></p>
+                    </div>
+                    <button id="restartBtn" class="secondary-btn">Start New Interview</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer with information -->
+        <div class="footer">
+            <p>Powered by Deepgram Speech Recognition & Groq AI</p>
+        </div>
+    </div>
+
+    <!-- Link to external JavaScript -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
